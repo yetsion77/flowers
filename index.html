@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>זיכרון פורח - פרחי ארץ ישראל</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <header>
+        <h1>זיכרון פורח</h1>
+        <p>גלו את פרחי ארץ ישראל</p>
+        <div class="game-stats">
+            <div class="stat-box">
+                <span class="label">זמן</span>
+                <span id="timer" class="value">00:00</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">ניסיונות</span>
+                <span id="moves" class="value">0</span>
+            </div>
+            <button id="restart-btn" class="restart-btn" title="התחל מחדש">↻</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="game-container" id="game-board">
+            <!-- Cards will be generated here -->
+        </div>
+    </main>
+
+    <!-- Modal for Victory -->
+    <div id="victory-modal" class="modal hidden">
+        <div class="modal-content glass">
+            <h2>כל הכבוד! 🌸</h2>
+            <p>מצאתם את כל הזוגות!</p>
+            <div class="final-stats">
+                <p>זמן: <span id="final-time"></span></p>
+                <p>צעדים: <span id="final-moves"></span></p>
+            </div>
+            <button id="play-again-btn" class="primary-btn">שחק שוב</button>
+        </div>
+    </div>
+
+    <!-- Modal for Flower Info (Optional for future expansion) -->
+
+    <script src="script.js"></script>
+</body>
+</html>
