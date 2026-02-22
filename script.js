@@ -1,80 +1,42 @@
+// ===== DATA =====
+
 const flowers = [
-    {
-        name: 'רקפת',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/CyclamenPersicumMill20.jpg?width=500'
-    },
-    {
-        name: 'כלנית',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Red_Anemone_coronaria.jpg?width=500'
-    },
-    {
-        name: 'אירוס',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Iris_haynei_(photo_by_Pixie).jpg?width=500'
-    },
-    {
-        name: 'צבעוני',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Tulipa_agenensis_1.jpg?width=500'
-    },
-    {
-        name: 'נרקיס',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Narcissus_tazetta_1.jpg?width=500'
-    },
-    {
-        name: 'תורמוס',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Lupinus_pilosus_adl2.JPG?width=500'
-    },
-    {
-        name: 'עירית',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Asphodelus_ramosus.JPG?width=500'
-    },
-    {
-        name: 'סביון',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Senecio_vernalis.jpeg?width=500'
-    },
-    {
-        name: 'חרצית',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Glebionis_coronaria.jpg?width=500'
-    },
-    {
-        name: 'חוטמית',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Alcea_setosa.jpg?width=500'
-    },
-    {
-        name: 'דם-המכבים',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Helichrysum_sanguineum.jpg?width=500'
-    },
-    {
-        name: 'פשתה שעירה',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Linum_pubescens.jpg?width=500'
-    },
-    {
-        name: 'כרמלית נאה',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ricotia_lunaria_01.JPG?width=500'
-    },
-    {
-        name: 'דבורנית',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ophrys_iricolor_1.JPG?width=500'
-    },
-    {
-        name: 'חרדל',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sinapis_alba_1.JPG?width=500'
-    },
-    {
-        name: 'מקור החסידה',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Erodium_cicutarium_Detail.jpg?width=500'
-    }
+    { name: 'רקפת', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/CyclamenPersicumMill20.jpg?width=500' },
+    { name: 'כלנית', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Red_Anemone_coronaria.jpg?width=500' },
+    { name: 'אירוס', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Iris_haynei_(photo_by_Pixie).jpg?width=500' },
+    { name: 'צבעוני', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Tulipa_agenensis_1.jpg?width=500' },
+    { name: 'נרקיס', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Narcissus_tazetta_1.jpg?width=500' },
+    { name: 'תורמוס', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Lupinus_pilosus_adl2.JPG?width=500' },
+    { name: 'עירית', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Asphodelus_ramosus.JPG?width=500' },
+    { name: 'סביון', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Senecio_vernalis.jpeg?width=500' },
+    { name: 'חרצית', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Glebionis_coronaria.jpg?width=500' },
+    { name: 'חוטמית', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Alcea_setosa.jpg?width=500' },
+    { name: 'דם-המכבים', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Helichrysum_sanguineum.jpg?width=500' },
+    { name: 'פשתה שעירה', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Linum_pubescens.jpg?width=500' },
+    { name: 'כרמלית נאה', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ricotia_lunaria_01.JPG?width=500' },
+    { name: 'דבורנית', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ophrys_iricolor_1.JPG?width=500' },
+    { name: 'חרדל', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sinapis_alba_1.JPG?width=500' },
+    { name: 'מקור חסידה', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Erodium_cicutarium_Detail.jpg?width=500' }
 ];
 
-const gameBoard = document.getElementById('game-board');
-const timerElement = document.getElementById('timer');
-const movesElement = document.getElementById('moves');
-const restartBtn = document.getElementById('restart-btn');
-const victoryModal = document.getElementById('victory-modal');
-const finalTimeElement = document.getElementById('final-time');
-const finalMovesElement = document.getElementById('final-moves');
-const playAgainBtn = document.getElementById('play-again-btn');
+const birds = [
+    { name: 'דוכיפת', image: 'birds/dukifat.png' },
+    { name: 'יונה', image: 'birds/yona.png' },
+    { name: 'עורבני', image: 'birds/orvani.png' },
+    { name: 'צופית', image: 'birds/tzufit.png' },
+    { name: 'בולבול', image: 'birds/bulbul.png' },
+    { name: 'עורב', image: 'birds/orev.png' },
+    { name: 'בז', image: 'birds/baz.png' },
+    { name: 'כוס החורבות', image: 'birds/kos.png' },
+    { name: 'נשר מקראי', image: 'birds/nesher.png' },
+    { name: 'דרור', image: 'birds/draror.png' }
+];
 
-let cards = [];
+// ===== STATE =====
+
+let currentCategory = null; // 'flowers' | 'birds'
+let currentDataset = [];
+
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
@@ -84,16 +46,70 @@ let seconds = 0;
 let matchCount = 0;
 let isTimerRunning = false;
 
-// Preload images for smoother experience
+// ===== ELEMENTS =====
+
+const startScreen = document.getElementById('start-screen');
+const gameScreen = document.getElementById('game-screen');
+const btnFlowers = document.getElementById('btn-flowers');
+const btnBirds = document.getElementById('btn-birds');
+const backBtn = document.getElementById('back-btn');
+const backToMenuBtn = document.getElementById('back-to-menu-btn');
+
+const gameBoard = document.getElementById('game-board');
+const timerElement = document.getElementById('timer');
+const movesElement = document.getElementById('moves');
+const restartBtn = document.getElementById('restart-btn');
+const victoryModal = document.getElementById('victory-modal');
+const finalTimeElement = document.getElementById('final-time');
+const finalMovesElement = document.getElementById('final-moves');
+const playAgainBtn = document.getElementById('play-again-btn');
+const gameTitleEl = document.getElementById('game-title');
+const gameSubtitleEl = document.getElementById('game-subtitle');
+const victoryTitleEl = document.getElementById('victory-title');
+
+// ===== NAVIGATION =====
+
+function showStartScreen() {
+    startScreen.classList.remove('hidden');
+    gameScreen.classList.add('hidden');
+    victoryModal.classList.add('hidden');
+    clearInterval(timerObj);
+}
+
+function showGameScreen(category) {
+    currentCategory = category;
+    if (category === 'flowers') {
+        currentDataset = flowers;
+        gameTitleEl.textContent = 'זיכרון פורח';
+        gameSubtitleEl.textContent = 'גלו את פרחי ארץ ישראל';
+        victoryTitleEl.textContent = 'כל הכבוד! 🌸';
+    } else {
+        currentDataset = birds;
+        gameTitleEl.textContent = 'זיכרון עופות';
+        gameSubtitleEl.textContent = 'גלו את ציפורי ארץ ישראל';
+        victoryTitleEl.textContent = 'כל הכבוד! 🦅';
+    }
+    startScreen.classList.add('hidden');
+    gameScreen.classList.remove('hidden');
+    preloadImages();
+    initGame();
+}
+
+btnFlowers.addEventListener('click', () => showGameScreen('flowers'));
+btnBirds.addEventListener('click', () => showGameScreen('birds'));
+backBtn.addEventListener('click', showStartScreen);
+backToMenuBtn.addEventListener('click', showStartScreen);
+
+// ===== GAME LOGIC =====
+
 function preloadImages() {
-    flowers.forEach(flower => {
+    currentDataset.forEach(item => {
         const img = new Image();
-        img.src = flower.image;
+        img.src = item.image;
     });
 }
 
 function initGame() {
-    // Reset state
     gameBoard.innerHTML = '';
     moves = 0;
     seconds = 0;
@@ -107,23 +123,23 @@ function initGame() {
     updateStats();
     clearInterval(timerObj);
 
-    // Create card pairs
-    // Note: We duplicate the flowers array to create pairs
-    const gamePairs = [...flowers, ...flowers]; // 26 cards total
+    // Create pairs from dataset
+    const gamePairs = [...currentDataset, ...currentDataset];
     shuffle(gamePairs);
 
-    // Generate HTML
-    gamePairs.forEach(flower => {
+    const isBirds = currentCategory === 'birds';
+
+    gamePairs.forEach(item => {
         const card = document.createElement('div');
         card.classList.add('card');
-        card.dataset.name = flower.name;
+        card.dataset.name = item.name;
 
         card.innerHTML = `
             <div class="card-front">
-                <img src="${flower.image}" alt="${flower.name}" class="card-image">
-                <div class="card-name">${flower.name}</div>
+                <img src="${item.image}" alt="${item.name}" class="card-image">
+                <div class="card-name">${item.name}</div>
             </div>
-            <div class="card-back"></div>
+            <div class="card-back ${isBirds ? 'bird-back' : ''}"></div>
         `;
 
         card.addEventListener('click', flipCard);
@@ -165,13 +181,11 @@ function flipCard() {
     this.classList.add('flip');
 
     if (!hasFlippedCard) {
-        // First click
         hasFlippedCard = true;
         firstCard = this;
         return;
     }
 
-    // Second click
     secondCard = this;
     incrementMoves();
     checkForMatch();
@@ -184,7 +198,6 @@ function incrementMoves() {
 
 function checkForMatch() {
     let isMatch = firstCard.dataset.name === secondCard.dataset.name;
-
     if (isMatch) {
         disableCards();
     } else {
@@ -195,12 +208,11 @@ function checkForMatch() {
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-
     firstCard.classList.add('matched');
     secondCard.classList.add('matched');
 
     matchCount++;
-    if (matchCount === flowers.length) {
+    if (matchCount === currentDataset.length) {
         endGame();
     }
 
@@ -209,7 +221,6 @@ function disableCards() {
 
 function unflipCards() {
     lockBoard = true;
-
     setTimeout(() => {
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
@@ -233,16 +244,14 @@ function endGame() {
 }
 
 function confettiEffect() {
-    // Simple js confetti using emojis
-    const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722'];
-
+    const emojis = currentCategory === 'birds' ? ['🦅', '🪶', '🐦', '🦜'] : ['🌸', '🌺', '🌼', '🌻'];
     for (let i = 0; i < 50; i++) {
         const confetti = document.createElement('div');
-        confetti.innerText = '🌸';
+        confetti.innerText = emojis[Math.floor(Math.random() * emojis.length)];
         confetti.style.position = 'fixed';
         confetti.style.left = Math.random() * 100 + 'vw';
         confetti.style.top = -10 + 'vh';
-        confetti.style.fontSize = (Math.random() * 20 + 10) + 'px';
+        confetti.style.fontSize = (Math.random() * 18 + 10) + 'px';
         confetti.style.zIndex = 1000;
         confetti.style.transition = 'top 3s ease-in, transform 3s ease-in';
         document.body.appendChild(confetti);
@@ -259,8 +268,10 @@ function confettiEffect() {
 }
 
 restartBtn.addEventListener('click', initGame);
-playAgainBtn.addEventListener('click', initGame);
+playAgainBtn.addEventListener('click', () => {
+    victoryModal.classList.add('hidden');
+    initGame();
+});
 
-// Start
-preloadImages();
-initGame();
+// Start at the main menu
+showStartScreen();
