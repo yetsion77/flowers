@@ -158,6 +158,12 @@ body {
     box-shadow: 0 6px 20px rgba(21, 101, 192, 0.35);
 }
 
+.animals-btn {
+    background: linear-gradient(135deg, #a1887f, #5d4037);
+    color: white;
+    box-shadow: 0 6px 20px rgba(93, 64, 55, 0.35);
+}
+
 .category-emoji {
     font-size: 2.4rem;
     line-height: 1;
@@ -397,6 +403,15 @@ main {
 
 .card-back.bird-back::after {
     content: '🪶';
+}
+
+/* Animals category - different back */
+.card-back.animal-back {
+    background: linear-gradient(135deg, #a1887f, #5d4037);
+}
+
+.card-back.animal-back::after {
+    content: '🐾';
 }
 
 /* Front of card */

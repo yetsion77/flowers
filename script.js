@@ -32,6 +32,19 @@ const birds = [
     { name: 'דרור', image: 'birds/draror.png' }
 ];
 
+const animals = [
+    { name: 'גירית', image: 'ANIMALS/badger.png' },
+    { name: 'קרקל', image: 'ANIMALS/caracal.png' },
+    { name: 'שועל', image: 'ANIMALS/fox.png' },
+    { name: 'צבי', image: 'ANIMALS/gazelle.png' },
+    { name: 'צבוע', image: 'ANIMALS/hyena.png' },
+    { name: 'תן', image: 'ANIMALS/jackal.png' },
+    { name: 'דורבן', image: 'ANIMALS/porcupine.png' },
+    { name: 'יעל', image: 'ANIMALS/ibex.png' },
+    { name: 'פרא', image: 'ANIMALS/wild_donkey.png' },
+    { name: 'שפן סלע', image: 'ANIMALS/rock_hyrax.png' }
+];
+
 // ===== STATE =====
 
 let currentCategory = null;
@@ -53,6 +66,7 @@ const startScreen = document.getElementById('start-screen');
 const gameScreen = document.getElementById('game-screen');
 const btnFlowers = document.getElementById('btn-flowers');
 const btnBirds = document.getElementById('btn-birds');
+const btnAnimals = document.getElementById('btn-animals');
 const backBtn = document.getElementById('back-btn');
 const backToMenuBtn = document.getElementById('back-to-menu-btn');
 
@@ -84,11 +98,16 @@ function showGameScreen(category) {
         gameTitleEl.textContent = 'זיכרון פורח';
         gameSubtitleEl.textContent = 'גלו את פרחי ארץ ישראל';
         victoryTitleEl.textContent = 'כל הכבוד! 🌸';
-    } else {
+    } else if (category === 'birds') {
         currentDataset = birds;
         gameTitleEl.textContent = 'זיכרון עופות';
         gameSubtitleEl.textContent = 'גלו את ציפורי ארץ ישראל';
         victoryTitleEl.textContent = 'כל הכבוד! 🦅';
+    } else {
+        currentDataset = animals;
+        gameTitleEl.textContent = 'חיות הבר בארצנו';
+        gameSubtitleEl.textContent = 'גלו את חיות הבר של ישראל';
+        victoryTitleEl.textContent = 'כל הכבוד! 🐾';
     }
     startScreen.classList.add('hidden');
     gameScreen.classList.remove('hidden');
@@ -98,6 +117,7 @@ function showGameScreen(category) {
 
 btnFlowers.addEventListener('click', () => showGameScreen('flowers'));
 btnBirds.addEventListener('click', () => showGameScreen('birds'));
+btnAnimals.addEventListener('click', () => showGameScreen('animals'));
 backBtn.addEventListener('click', showStartScreen);
 backToMenuBtn.addEventListener('click', showStartScreen);
 
@@ -134,19 +154,21 @@ function initGame() {
     const gamePairs = [...selectedDataset, ...selectedDataset];
     shuffle(gamePairs);
 
-    const isBirds = currentCategory === 'birds';
-
     gamePairs.forEach(item => {
         const card = document.createElement('div');
         card.classList.add('card');
         card.dataset.name = item.name;
+
+        let cardBackClass = '';
+        if (currentCategory === 'birds') cardBackClass = 'bird-back';
+        else if (currentCategory === 'animals') cardBackClass = 'animal-back';
 
         card.innerHTML = `
             <div class="card-front">
                 <img src="${item.image}" alt="${item.name}" class="card-image">
                 <div class="card-name">${item.name}</div>
             </div>
-            <div class="card-back ${isBirds ? 'bird-back' : ''}"></div>
+            <div class="card-back ${cardBackClass}"></div>
         `;
 
         card.addEventListener('click', flipCard);
@@ -251,7 +273,10 @@ function endGame() {
 }
 
 function confettiEffect() {
-    const emojis = currentCategory === 'birds' ? ['🦅', '🪶', '🐦', '🦜'] : ['🌸', '🌺', '🌼', '🌻'];
+    let emojis = ['🌸', '🌺', '🌼', '🌻'];
+    if (currentCategory === 'birds') emojis = ['🦅', '🪶', '🐦', '🦜'];
+    else if (currentCategory === 'animals') emojis = ['🐾', '🦌', '🦊', '🐺'];
+
     for (let i = 0; i < 50; i++) {
         const confetti = document.createElement('div');
         confetti.innerText = emojis[Math.floor(Math.random() * emojis.length)];
