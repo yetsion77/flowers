@@ -34,8 +34,9 @@ const birds = [
 
 // ===== STATE =====
 
-let currentCategory = null; // 'flowers' | 'birds'
+let currentCategory = null;
 let currentDataset = [];
+let requiredMatches = 0;
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -123,8 +124,14 @@ function initGame() {
     updateStats();
     clearInterval(timerObj);
 
-    // Create pairs from dataset
-    const gamePairs = [...currentDataset, ...currentDataset];
+    // Pick 10 random items to keep the grid consistent (20 cards)
+    let selectedDataset = [...currentDataset];
+    shuffle(selectedDataset);
+    selectedDataset = selectedDataset.slice(0, 10);
+
+    requiredMatches = selectedDataset.length;
+
+    const gamePairs = [...selectedDataset, ...selectedDataset];
     shuffle(gamePairs);
 
     const isBirds = currentCategory === 'birds';
@@ -212,7 +219,7 @@ function disableCards() {
     secondCard.classList.add('matched');
 
     matchCount++;
-    if (matchCount === currentDataset.length) {
+    if (matchCount === requiredMatches) {
         endGame();
     }
 
